@@ -2,7 +2,7 @@
 
 #include "Core.h"
 #include "spdlog/spdlog.h"
-
+#include "spdlog/fmt/ostr.h"
 namespace Leaf {
 class LEAF_API Log {
  public:

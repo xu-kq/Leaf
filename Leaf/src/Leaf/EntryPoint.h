@@ -1,7 +1,6 @@
 #pragma once
 
 extern Leaf::Application* Leaf::CreateApplication();
-
 int main(int argc, char** argv) {
   Leaf::Log::Init();
   LEAF_CORE_WARN("Initialized Log!");
