@@ -1,8 +1,6 @@
 #pragma once
 
-#include <functional>
-#include <iostream>
-#include <string>
+#include "leafpch.h"
 #include "Leaf/Core.h"
 namespace Leaf {
 
@@ -82,7 +80,8 @@ class EventDispatcher {
   Event& m_Event;
 };
 
-std::ostream& operator<<(std::ostream& os, const Event& e) {
+// must be inline, or stored the implementation in a .cpp file
+inline std::ostream& operator<<(std::ostream& os, const Event& e) {
   return os << e.ToString();
 }
 }  // namespace Leaf

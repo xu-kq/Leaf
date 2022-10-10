@@ -1,7 +1,4 @@
 #pragma once
-
-#include <sstream>
-
 #include "Event.h"
 
 namespace Leaf {
@@ -32,7 +29,7 @@ class LEAF_API WindowCloseEvent : public Event {
   WindowCloseEvent() = default;
 };
 
-class LEAF_API AppTickEvent : public Event{
+class LEAF_API AppTickEvent : public Event {
  public:
   EVENT_CLASS_CATEGORY(EventCategoryApplication)
   EVENT_CLASS_TYPE(AppTick)

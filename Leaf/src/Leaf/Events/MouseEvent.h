@@ -1,7 +1,4 @@
 #pragma once
-
-#include <sstream>
-
 #include "Event.h"
 
 namespace Leaf {
@@ -61,7 +58,6 @@ class LEAF_API MouseButtonPressedEvent : public MouseButtonEvent {
     std::stringstream ss;
     ss << "MosueButtonPressedEvent: " << m_Button;
   }
-
 };
 
 class LEAF_API MouseButtonReleasedEvent : public MouseButtonEvent {
@@ -73,6 +69,5 @@ class LEAF_API MouseButtonReleasedEvent : public MouseButtonEvent {
     std::stringstream ss;
     ss << "MosueButtonReleasedEvent: " << m_Button;
   }
-
 };
 }  // namespace Leaf

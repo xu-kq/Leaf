@@ -11,6 +11,8 @@
 #include <utility>
 #include <vector>
 
+#include "Leaf/Log.h"
+
 #ifdef LEAF_PLATFORM_WINDOWS
-  #include<Windows.h>
+#include <Windows.h>
 #endif  // LEAF_PLATFORM_WINDOWS

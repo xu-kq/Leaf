@@ -26,3 +26,5 @@ endif()
 add_subdirectory ("Leaf")
 
 add_subdirectory("Sandbox")
+
+add_subdirectory("Leaf/vendor/GLFW")

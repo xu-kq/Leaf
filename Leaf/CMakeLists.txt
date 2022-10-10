@@ -9,9 +9,19 @@
 	"src/Leaf/Events/Event.h" 
 	"src/Leaf/Events/KeyEvent.h"  
 	"src/Leaf/Events/MouseEvent.h" 
-	"src/Leaf/Events/ApplicationEvent.h"  "src/leafpch.h")
+	"src/Leaf/Events/ApplicationEvent.h"  
+	"src/leafpch.h" 
+	"src/Leaf/Window.h"
+	"src/Leaf/Platform/Windows/WindowsWindow.h" 
+	"src/Leaf/Platform/Windows/WindowsWindow.cpp")
 
-target_include_directories(Leaf INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+target_link_libraries(Leaf "glfw")
+if (WIN32)
+    target_link_libraries(Leaf "opengl32.lib")
+endif()
+
+target_include_directories(Leaf PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
+									   ${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include)
 
 set(EXECUTABLE_PROJECT_NAME Sandbox)
 set_target_properties(Leaf 
@@ -20,11 +30,10 @@ set_target_properties(Leaf
 	LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/${CURRENT_ARCHITECUTURE}-${CMAKE_BUILD_TYPE}/${PROJECT_NAME}
 	RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/${CURRENT_ARCHITECUTURE}-${CMAKE_BUILD_TYPE}/${EXECUTABLE_PROJECT_NAME}
 )
-target_include_directories(Leaf PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include)
-target_include_directories(Leaf PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
-target_compile_definitions(Leaf PRIVATE LEAF_PLATFORM_WINDOWS LEAF_BUILD_DLL)
 
-target_precompile_headers(Leaf
-  PRIVATE
-    [["leafpch.h"]]
-)
+target_compile_definitions(Leaf PRIVATE LEAF_PLATFORM_WINDOWS   
+										LEAF_BUILD_DLL
+										LEAF_ENABLE_ASSERTS)
+
+target_precompile_headers(Leaf PRIVATE [["leafpch.h"]])
+

@@ -9,3 +9,4 @@ set_property(TARGET Sandbox PROPERTY RUNTIME_OUTPUT_DIRECTORY
 )
 
 target_compile_definitions(Sandbox PRIVATE LEAF_PLATFORM_WINDOWS)
+#add_definitions(-DLEAF_PLATFORM_WINDOWS -ULEAF_BUILD_DLL)

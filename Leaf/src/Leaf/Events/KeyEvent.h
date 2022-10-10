@@ -1,6 +1,6 @@
 #pragma once
-#include <sstream>
 #include "Event.h"
+
 namespace Leaf {
 class LEAF_API KeyEvent : public Event {
  public:
@@ -40,6 +40,5 @@ class LEAF_API KeyReleasedEvent : public KeyEvent {
     ss << "KeyReleasedEvent: " << m_KeyCode;
     return ss.str();
   }
-
 };
 }  // namespace Leaf

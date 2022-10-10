@@ -5,5 +5,4 @@ class Sandbox : public Leaf::Application {
   ~Sandbox() {}
 };
 
-
 Leaf::Application* Leaf::CreateApplication() { return new Sandbox(); }
