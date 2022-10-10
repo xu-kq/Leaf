@@ -9,7 +9,7 @@
 	"src/Leaf/Events/Event.h" 
 	"src/Leaf/Events/KeyEvent.h"  
 	"src/Leaf/Events/MouseEvent.h" 
-	"src/Leaf/Events/ApplicationEvent.h" )
+	"src/Leaf/Events/ApplicationEvent.h"  "src/leafpch.h")
 
 target_include_directories(Leaf INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
@@ -24,3 +24,7 @@ target_include_directories(Leaf PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog
 target_include_directories(Leaf PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_compile_definitions(Leaf PRIVATE LEAF_PLATFORM_WINDOWS LEAF_BUILD_DLL)
 
+target_precompile_headers(Leaf
+  PRIVATE
+    [["leafpch.h"]]
+)
